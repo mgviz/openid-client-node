@@ -1,0 +1,14 @@
+{
+  "name": "mgviz-openid",
+  "detail": "Node.js client for the MGviz OpenID service",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": { "type": "git", "url": "https://github.com/mgviz/openid-client-node" },
+  "author": "Josemi Juanes <josemijuanes@gmail.com>",
+  "keywords": [ "openid", "client", "mgviz" ],
+  "dependencies":
+  {
+    "jwt-simple": "0.5.1"
+  },
+  "license": "MIT"
+}
