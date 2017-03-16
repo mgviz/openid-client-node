@@ -67,10 +67,10 @@ module.exports.authenticate = function(token, cb)
     //Do the callback
     return cb(null, obj);
   }
-  catch (e)
+  catch(error)
   {
     //Return with the error
-    return cb(e, {});
+    return cb(error, {});
   }
 };
 
