@@ -2,11 +2,11 @@
 var url = require('url');
 var jwt = require('jwt-simple');
 
-//Configuration values
+//Authentication
 var config = { id: '', secret: '', url: 'https://account.mgviz.org' };
 
 //Set the client configuration
-module.exports.config = function(obj)
+module.exports.set = function(obj)
 {
   //Check for undefined object
   if(typeof obj !== 'object'){ return; }
@@ -22,7 +22,7 @@ module.exports.config = function(obj)
 };
 
 //Build the authentication url
-module.exports.login = function(cb)
+module.exports.get_url = function(cb)
 {
   //Check the client id
   if(typeof config.id !== 'string' || config.id === ''){ return cb(new Error('No client ID provided')); }
@@ -31,14 +31,14 @@ module.exports.login = function(cb)
   if(typeof config.secret !== 'string' || config.secret === ''){ return cb(new Error('No client secret key provided')); }
 
   //Build the authorization url
-  var auth_url = url.resolve(config.url, '/authorize?app_id=' + config.id);
+  var auth_url = url.resolve(config.url, '/authorize?client=' + config.id);
 
   //Return the url
   return cb(null, auth_url);
 };
 
-//Decode and authenticate an user
-module.exports.authenticate = function(token, cb)
+//Verify the token
+module.exports.verify_token = function(token, cb)
 {
   //Check the client id
   if(typeof config.id !== 'string' || config.id === ''){ return cb(new Error('No client ID provided')); }
