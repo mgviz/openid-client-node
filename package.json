@@ -1,5 +1,5 @@
 {
-  "name": "mgviz-openid-client-node",
+  "name": "mgviz-openid",
   "detail": "Node.js client for the MGviz OpenID service",
   "version": "0.0.1",
   "main": "index.js",
